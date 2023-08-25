@@ -50,9 +50,11 @@
 		throw new Exception(`Element ${elemId} didn't appear. Giving up!`);
 	}
 
-	async function writeSection1() {
+	// Note: Section 1 is the introduction text and contains no data.
+	async function writeSection2() {
 		let argsOff = 0;
 		let elem = await awaitElem("root_6");
+		console.log("Writing section 2");
 		const inputs = document.querySelectorAll("#\\32 627047 input");
 		const notificationType = args[argsOff++];
 		if(notificationType !== "") {
@@ -80,12 +82,13 @@
 		}
 		if(argsOff < args.length) {
 			document.querySelectorAll("#\\32 627047 button")[3].click();
-			writeSection2(argsOff);
+			writeSection3(argsOff);
 		}
 	}
 
-	async function writeSection2(argsOff) {
+	async function writeSection3(argsOff) {
 		await awaitElem("root_12_1");
+		console.log("Writing section 3");
 		const inputs = document.querySelectorAll("#\\32 627047 input");
 		input(inputs[0], args[argsOff++]);
 		input(inputs[1], args[argsOff++]);
@@ -99,12 +102,13 @@
 
 		if(argsOff < args.length) {
 			document.querySelectorAll("#\\32 627047 button")[3].click();
-			writeSection3(argsOff);
+			writeSection4(argsOff);
 		}
 	}
 
-	async function writeSection3(argsOff) {
+	async function writeSection4(argsOff) {
 		let elem = await awaitElem("root_14");
+		console.log("Writing section 4");
 		const sector = args[argsOff++];
 		if(sector !== "") {
 			select(elem, sector);
@@ -133,12 +137,13 @@
 
 		if(argsOff < args.length) {
 			document.querySelectorAll("#\\32 627047 button")[1].click();
-			writeSection4(argsOff);
+			writeSection5(argsOff);
 		}
 	}
 
-	async function writeSection4(argsOff) {
+	async function writeSection5(argsOff) {
 		await awaitElem("root_20_3");
+		console.log("Writing section 5");
 		let inputs = document.querySelectorAll("#\\32 627047 input,textarea");
 		input(inputs[inputs.length - 1], args[args.length - 1]);
 		const workplaces = args[argsOff];
@@ -193,5 +198,5 @@
 	}
 
 	document.querySelector("#\\32 627047 button").click();
-	await writeSection1();
+	await writeSection2();
 })

@@ -26,26 +26,13 @@
 		const result = [];
 		let lastSection = -1;
 
-		async function readSection1() {
+		// Note: Section 1 is the introduction text and contains no data.
+		async function readSection2() {
 			if(lastSection < 0) {
 				return;
 			}
 			sectionButtons[0].click();
 			await awaitElem(indicators[0]);
-			console.log("Reading section 1");
-			const inputs = document.querySelectorAll("#\\32 627047 input");
-			inputs.forEach(input => {
-				result.push(input.value);
-			});
-			await readSection2();
-		}
-
-		async function readSection2() {
-			if(lastSection < 1) {
-				return;
-			}
-			sectionButtons[1].click();
-			await awaitElem(indicators[1]);
 			console.log("Reading section 2");
 			const inputs = document.querySelectorAll("#\\32 627047 input");
 			inputs.forEach(input => {
@@ -55,11 +42,11 @@
 		}
 
 		async function readSection3() {
-			if(lastSection < 2) {
+			if(lastSection < 1) {
 				return;
 			}
-			sectionButtons[2].click();
-			await awaitElem(indicators[2]);
+			sectionButtons[1].click();
+			await awaitElem(indicators[1]);
 			console.log("Reading section 3");
 			const inputs = document.querySelectorAll("#\\32 627047 input");
 			inputs.forEach(input => {
@@ -69,12 +56,26 @@
 		}
 
 		async function readSection4() {
+			if(lastSection < 2) {
+				return;
+			}
+			sectionButtons[2].click();
+			await awaitElem(indicators[2]);
+			console.log("Reading section 4");
+			const inputs = document.querySelectorAll("#\\32 627047 input");
+			inputs.forEach(input => {
+				result.push(input.value);
+			});
+			await readSection5();
+		}
+
+		async function readSection5() {
 			if(lastSection < 3) {
 				return;
 			}
 			sectionButtons[3].click();
 			await awaitElem(indicators[3]);
-			console.log("Reading section 4");
+			console.log("Reading section 5");
 			const inputs = document.querySelectorAll("#\\32 627047 input,textarea");
 			const workplaces = [];
 			let workplace;
@@ -133,7 +134,7 @@
 			++lastSection;
 		}
 
-		await readSection1();
+		await readSection2();
 
 		return result;
 	}
