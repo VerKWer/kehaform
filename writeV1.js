@@ -151,8 +151,8 @@
 		if(workplaces.length >= 1) {
 			[inputs, inputsOffset] = fillWorkplace(inputs, inputsOffset, workplaces[0]);
 		}
-		console.log(`Offset after main workplace: ${inputsOffset}`);
-		console.log(inputs[inputsOffset]);
+		// console.log(`Offset after main workplace: ${inputsOffset}`);
+		// console.log(inputs[inputsOffset]);
 		if(workplaces.length > 1) {
 			selectRadio(inputs[inputsOffset]);  // select "Yes": other workspaces to report
 			inputsOffset += 2;  // the "Yes" and "No" radio buttons are two inputs we need to skip
