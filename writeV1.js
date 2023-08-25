@@ -79,7 +79,7 @@
 			}
 		}
 		if(argsOff < args.length) {
-			document.querySelectorAll("#\\32 627047 > button")[1].click();
+			document.querySelectorAll("#\\32 627047 button")[3].click();
 			writeSection2(argsOff);
 		}
 	}
@@ -98,7 +98,7 @@
 
 
 		if(argsOff < args.length) {
-			document.querySelectorAll("#\\32 627047 > button")[1].click();
+			document.querySelectorAll("#\\32 627047 button")[3].click();
 			writeSection3(argsOff);
 		}
 	}
@@ -132,7 +132,7 @@
 		}
 
 		if(argsOff < args.length) {
-			document.querySelectorAll("#\\32 627047 > button")[1].click();
+			document.querySelectorAll("#\\32 627047 button")[1].click();
 			writeSection4(argsOff);
 		}
 	}
@@ -192,6 +192,6 @@
 		return [inputs, offset]
 	}
 
-	document.querySelector("#\\32 627047 > button").click();
+	document.querySelector("#\\32 627047 button").click();
 	await writeSection1();
 })
