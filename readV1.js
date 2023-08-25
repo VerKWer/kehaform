@@ -101,6 +101,7 @@
 			workplace.push(inputs[offset++].value);  // municipality
 			workplace.push(inputs[offset++].value);  // address
 			workplace.push(inputs[offset++].textContent);  // load/unload
+			++offset;  // seems like they added a hidden textarea for some reason that we need to skip
 
 			const workerTable = inputs[offset].closest("table");
 			const nRows = workerTable.querySelectorAll("input").length / 7;
