@@ -145,8 +145,9 @@
 		await awaitElem("root_20_3");
 		console.log("Writing section 5");
 		let inputs = document.querySelectorAll("#\\32 627047 input,textarea");
-		input(inputs[inputs.length - 1], args[args.length - 1]);
+		input(document.getElementById("root_23"), args[args.length - 1]);  // fill in "Additional information"
 		const workplaces = args[argsOff];
+		console.log(`Filling in ${workplaces.length} workplace${workplaces.length == 1 ? "" : "s"}`);
 		let inputsOffset = 0;
 		if(workplaces.length >= 1) {
 			[inputs, inputsOffset] = fillWorkplace(inputs, inputsOffset, workplaces[0]);
@@ -176,9 +177,10 @@
 	}
 
 	function fillWorkplace(inputs, offset, workplace) {
-		selectCountry(inputs[offset++], workplace[0]);
-		input(inputs[offset++], workplace[1]);
-		input(inputs[offset++], workplace[2]);
+		selectCountry(inputs[offset++], workplace[0]);  // this is really the "Municipality" but mechanism is the same
+		input(inputs[offset++], workplace[1]);  // address
+		input(inputs[offset++], workplace[2]);  // loading and unloading location
+		++offset;  // skip hidden textarea
 		const workers = workplace[3];  // worker list
 		const plusWorkerButton = document.evaluate("ancestor::table/../following-sibling::button", inputs[offset])
 				.iterateNext();
