@@ -38,6 +38,11 @@
 		elem.dispatchEvent(new Event("focusout", { bubbles: true }));
 	}
 
+	function clickForwardButton() {
+		const buttons = document.querySelectorAll("#\\32 627047 button");
+		buttons[buttons.length - 1].click();
+	}
+
 	async function awaitElem(elemId) {
 		for(let attemtps = 0; attemtps < 1000; ++attemtps) {
 			const elem = document.getElementById(elemId);
@@ -81,7 +86,7 @@
 			}
 		}
 		if(argsOff < args.length) {
-			document.querySelectorAll("#\\32 627047 button")[3].click();
+			clickForwardButton();
 			writeSection3(argsOff);
 		}
 	}
@@ -101,7 +106,7 @@
 
 
 		if(argsOff < args.length) {
-			document.querySelectorAll("#\\32 627047 button")[3].click();
+			clickForwardButton();
 			writeSection4(argsOff);
 		}
 	}
@@ -136,7 +141,7 @@
 		}
 
 		if(argsOff < args.length) {
-			document.querySelectorAll("#\\32 627047 button")[1].click();
+			clickForwardButton();
 			writeSection5(argsOff);
 		}
 	}
