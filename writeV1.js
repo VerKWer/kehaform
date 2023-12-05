@@ -40,7 +40,14 @@
 
 	function clickForwardButton() {
 		const buttons = document.querySelectorAll("#\\32 627047 button");
-		buttons[buttons.length - 1].click();
+		for(const button of buttons) {
+			const text = button.textContent;
+			if("Forward" === text || "Eteenpäin" === text) {
+				button.click();
+				return;
+			}
+		}
+		console.error("No forward button found");
 	}
 
 	async function awaitElem(elemId) {
